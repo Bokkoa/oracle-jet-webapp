@@ -4,8 +4,51 @@
  as shown at https://oss.oracle.com/licenses/upl/
  -->
 <div class="oj-hybrid-padding">
-  <h1>About Content Area</h1>
+  <h1>Services</h1>
   <div>
-      To change the content of this section, you will make edits to the about.html file located in the /js/views folder.
+
+    <oj-dialog id="modalDialog1" dialog-title="New Service">
+      <div slot="body">
+        <oj-input-text id="name-input" value="{{serviceName}}" label-hint="Service Name"
+          label-edge="inside"></oj-input-text>
+        <br></br>
+        <oj-input-text id="description-input" value="{{serviceDesc}}" label-hint="Service Description"
+          label-edge="inside"></oj-input-text>
+      </div>
+      <div slot="footer">
+        <oj-button id="okButton" on-oj-action="[[save]]">
+          Save
+        </oj-button>
+        <oj-button id="okButton" on-oj-action="[[cancel]]">
+          Cancel
+        </oj-button>
+      </div>
+    </oj-dialog>
+    <oj-button id="buttonOpener" on-oj-action="[[open]]" label="Add New Service"></oj-button>
+
+
+    <oj-table 
+      id="table" 
+      aria-label="Departments Table" 
+      accessibility.row-header="depName" 
+      style="height: 100%;"
+      data="[[dataprovider]]"
+      selection-mode='{"row": "multiple", "column": "multiple"}' dnd='{"reorder": {"columns": "enabled"}}'
+      scroll-policy="loadMoreOnScroll" scroll-policy-options='{"fetchSize": 10}' columns='[{"headerText": "Service Name", 
+               "field": "serviceName",
+               "headerClassName": "oj-sm-only-hide",
+               "className": "oj-sm-only-hide",
+               "resizable": "enabled",
+               "id": "depId"},
+              {"headerText": "Service Description", 
+               "field": "serviceDescription",
+               "resizable": "enabled",
+               "id": "depName"}
+              ]' class="demo-table-container"></oj-table>
+
+    <oj-messages id="oj-messages-id" messages="[[messagesDataprovider]]" display="notification"
+      display-options.category="none" position='{"my":{"vertical" :"top", "horizontal": "end"}, 
+                "at": {"vertical": "top", "horizontal": "end"},
+                "of": "window"}'></oj-messages>
   </div>
 </div>

@@ -13,7 +13,6 @@
   },
 
   "libs": {
-
     "knockout": {
       "cdn": "3rdparty",
       "cwd": "node_modules/knockout/build/output",
