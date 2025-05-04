@@ -7,6 +7,24 @@
   <h1>Services</h1>
   <div>
 
+    <oj-dialog id="updateServiceDialogId" dialog-title="Update Service">
+      <div slot="body">
+        <oj-input-text id="update-name-input" value="{{serviceNameUpdate}}" label-hint="Service Name"
+          label-edge="inside"></oj-input-text>
+        <br></br>
+        <oj-input-text id="update-description-input" value="{{serviceDescUpdate}}" label-hint="Service Description"
+          label-edge="inside"></oj-input-text>
+      </div>
+      <div slot="footer">
+        <oj-button id="okButton" on-oj-action="[[saveUpdate]]">
+          Save
+        </oj-button>
+        <oj-button id="okButton" on-oj-action="[[cancelUpdate]]">
+          Cancel
+        </oj-button>
+      </div>
+    </oj-dialog>
+
     <oj-dialog id="modalDialog1" dialog-title="New Service">
       <div slot="body">
         <oj-input-text id="name-input" value="{{serviceName}}" label-hint="Service Name"
@@ -24,17 +42,34 @@
         </oj-button>
       </div>
     </oj-dialog>
+
+
+    <oj-dialog id="deleteServiceDialogId" dialog-title="Delete Service">
+      <div slot="body">
+       Are you sure you want to delete service <oj-bind-text value="[[deleteServiceName]]"></oj-bind-text> ?
+      </div>
+      <div slot="footer">
+        <oj-button id="okButton" on-oj-action="[[deleteService]]">
+          Ok
+        </oj-button>
+        <oj-button id="okButton" on-oj-action="[[cancelDelete]]">
+          Cancel
+        </oj-button>
+      </div>
+    </oj-dialog>
+
     <oj-button id="buttonOpener" on-oj-action="[[open]]" label="Add New Service"></oj-button>
 
 
-    <oj-table 
-      id="table" 
-      aria-label="Departments Table" 
-      accessibility.row-header="depName" 
-      style="height: 100%;"
-      data="[[dataprovider]]"
-      selection-mode='{"row": "multiple", "column": "multiple"}' dnd='{"reorder": {"columns": "enabled"}}'
-      scroll-policy="loadMoreOnScroll" scroll-policy-options='{"fetchSize": 10}' columns='[{"headerText": "Service Name", 
+    <oj-table id="table" aria-label="Departments Table" accessibility.row-header="depName" style="height: 100%;"
+      data="[[dataprovider]]" on-selected-changed="[[selectedChangedListener]]" selection-mode='{"row": "single" }'
+      scroll-policy="loadMoreOnScroll" scroll-policy-options='{"fetchSize": 10}' columns='[{"headerText": "Actions", 
+               "headerClassName": "oj-sm-only-hide",
+               "className": "oj-sm-only-hide",
+               "resizable": "enabled",
+               "template": "cellTemplate"
+               "id": "depAction"},
+               {"headerText": "Service Name", 
                "field": "serviceName",
                "headerClassName": "oj-sm-only-hide",
                "className": "oj-sm-only-hide",
@@ -44,7 +79,18 @@
                "field": "serviceDescription",
                "resizable": "enabled",
                "id": "depName"}
-              ]' class="demo-table-container"></oj-table>
+              ]' class="demo-table-container">
+      <template slot="cellTemplate" data-oj-as="cell">
+        <oj-button id="buttonUpdateOpener" on-oj-action="[[openUpdate]]">
+          Update Service
+        </oj-button>
+
+        <oj-button id="buttonDelete" on-oj-action="[[openDelete]]">
+          Delete Service
+        </oj-button>
+      </template>
+
+    </oj-table>
 
     <oj-messages id="oj-messages-id" messages="[[messagesDataprovider]]" display="notification"
       display-options.category="none" position='{"my":{"vertical" :"top", "horizontal": "end"}, 
