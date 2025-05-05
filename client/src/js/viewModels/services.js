@@ -11,7 +11,8 @@ define([
   "ojs/ojbutton",
   "ojs/ojdialog",
   "ojs/ojmessages",
-  "ojs/ojinputtext"],
+  "ojs/ojinputtext",
+  "ojs/ojavatar"],
   function (require, exports, ko, ojbootstrap_1, ArrayDataProvider, utils) {
 
     function ServicesViewModel() {

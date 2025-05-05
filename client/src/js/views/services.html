@@ -46,7 +46,7 @@
 
     <oj-dialog id="deleteServiceDialogId" dialog-title="Delete Service">
       <div slot="body">
-       Are you sure you want to delete service <oj-bind-text value="[[deleteServiceName]]"></oj-bind-text> ?
+        Are you sure you want to delete service <oj-bind-text value="[[deleteServiceName]]"></oj-bind-text> ?
       </div>
       <div slot="footer">
         <oj-button id="okButton" on-oj-action="[[deleteService]]">
@@ -58,35 +58,48 @@
       </div>
     </oj-dialog>
 
-    <oj-button id="buttonOpener" on-oj-action="[[open]]" label="Add New Service"></oj-button>
+    <span class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
+      <oj-button id="buttonOpener" on-oj-action="[[open]]" chroming="callToAction">
+        Add New Service
+        <oj-avatar role="img" aria-label="Add Icon Image" size="xxs" src="css/images/add_24.png" slot="startIcon">
+        </oj-avatar>
+      </oj-button>
+    </span>
 
 
     <oj-table id="table" aria-label="Departments Table" accessibility.row-header="depName" style="height: 100%;"
       data="[[dataprovider]]" on-selected-changed="[[selectedChangedListener]]" selection-mode='{"row": "single" }'
-      scroll-policy="loadMoreOnScroll" scroll-policy-options='{"fetchSize": 10}' columns='[{"headerText": "Actions", 
+      scroll-policy="loadMoreOnScroll" scroll-policy-options='{"fetchSize": 10}' 
+      columns='[{"headerText": "Actions", 
                "headerClassName": "oj-sm-only-hide",
-               "className": "oj-sm-only-hide",
-               "resizable": "enabled",
+               "className": "custom-table-headers",
+               "width": "150",
                "template": "cellTemplate"
                "id": "depAction"},
                {"headerText": "Service Name", 
                "field": "serviceName",
-               "headerClassName": "oj-sm-only-hide",
+               "headerClassName": "custom-table-headers",
                "className": "oj-sm-only-hide",
                "resizable": "enabled",
                "id": "depId"},
               {"headerText": "Service Description", 
+                "headerClassName": "custom-table-headers",
                "field": "serviceDescription",
                "resizable": "enabled",
                "id": "depName"}
               ]' class="demo-table-container">
       <template slot="cellTemplate" data-oj-as="cell">
-        <oj-button id="buttonUpdateOpener" on-oj-action="[[openUpdate]]">
-          Update Service
+
+        <oj-button id="buttonUpdateOpener" on-oj-action="[[openUpdate]]" chroming="borderless">
+          <oj-avatar id="updatePng" role="img" aria-label="Add Icon Image" size="xxs" src="css/images/edit_24.png"
+            slot="startIcon">
+          </oj-avatar>
         </oj-button>
 
-        <oj-button id="buttonDelete" on-oj-action="[[openDelete]]">
-          Delete Service
+        <oj-button id="buttonDelete" on-oj-action="[[openDelete]]" chroming="borderless">
+          <oj-avatar id="deletePng" role="img" aria-label="Add Icon Image" size="xxs" src="css/images/delete_24.png"
+            slot="startIcon">
+          </oj-avatar>
         </oj-button>
       </template>
 

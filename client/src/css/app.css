@@ -11,6 +11,12 @@
   height: 27rem;
 }
 
+.custom-table-headers {
+  color: brown;
+  font-weight: bold;
+  
+}
+
 .send-off-screen {
   position: absolute;
   left: -10000px;
