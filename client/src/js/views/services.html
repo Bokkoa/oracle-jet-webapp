@@ -18,9 +18,14 @@
       <div slot="footer">
         <oj-button id="okButton" on-oj-action="[[saveUpdate]]">
           Save
+          <oj-avatar role="img" aria-label="Cancel Icon Image" size="xxs" src="css/images/ok_24.png" slot="startIcon">
+          </oj-avatar>
         </oj-button>
         <oj-button id="okButton" on-oj-action="[[cancelUpdate]]">
           Cancel
+          <oj-avatar role="img" aria-label="Cancel Icon Image" size="xxs" src="css/images/cancel_24.png"
+            slot="startIcon">
+          </oj-avatar>
         </oj-button>
       </div>
     </oj-dialog>
@@ -36,9 +41,14 @@
       <div slot="footer">
         <oj-button id="okButton" on-oj-action="[[save]]">
           Save
+          <oj-avatar role="img" aria-label="Cancel Icon Image" size="xxs" src="css/images/ok_24.png" slot="startIcon">
+          </oj-avatar>
         </oj-button>
         <oj-button id="okButton" on-oj-action="[[cancel]]">
           Cancel
+          <oj-avatar role="img" aria-label="Cancel Icon Image" size="xxs" src="css/images/cancel_24.png"
+            slot="startIcon">
+          </oj-avatar>
         </oj-button>
       </div>
     </oj-dialog>
@@ -51,9 +61,14 @@
       <div slot="footer">
         <oj-button id="okButton" on-oj-action="[[deleteService]]">
           Ok
+          <oj-avatar role="img" aria-label="Cancel Icon Image" size="xxs" src="css/images/ok_24.png" slot="startIcon">
+          </oj-avatar>
         </oj-button>
         <oj-button id="okButton" on-oj-action="[[cancelDelete]]">
           Cancel
+          <oj-avatar role="img" aria-label="Cancel Icon Image" size="xxs" src="css/images/cancel_24.png"
+            slot="startIcon">
+          </oj-avatar>
         </oj-button>
       </div>
     </oj-dialog>
@@ -69,8 +84,7 @@
 
     <oj-table id="table" aria-label="Departments Table" accessibility.row-header="depName" style="height: 100%;"
       data="[[dataprovider]]" on-selected-changed="[[selectedChangedListener]]" selection-mode='{"row": "single" }'
-      scroll-policy="loadMoreOnScroll" scroll-policy-options='{"fetchSize": 10}' 
-      columns='[{"headerText": "Actions", 
+      scroll-policy="loadMoreOnScroll" scroll-policy-options='{"fetchSize": 10}' columns='[{"headerText": "Actions", 
                "headerClassName": "oj-sm-only-hide",
                "className": "custom-table-headers",
                "width": "150",

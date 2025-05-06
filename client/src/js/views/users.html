@@ -1,0 +1,56 @@
+<div class="oj-hybrid-padding">
+  <h1>Users</h1>
+  <div>
+
+    <oj-dialog id="modalDialog1" dialog-title="New Service">
+      <div slot="body">
+        <oj-input-text id="name-input" value="{{serviceName}}" label-hint="Service Name"
+          label-edge="inside"></oj-input-text>
+        <br></br>
+        <oj-input-text id="description-input" value="{{serviceDesc}}" label-hint="Service Description"
+          label-edge="inside"></oj-input-text>
+      </div>
+      <div slot="footer">
+        <oj-button id="okButton" on-oj-action="[[save]]">
+          Save
+          <oj-avatar role="img" aria-label="Cancel Icon Image" size="xxs" src="css/images/ok_24.png" slot="startIcon">
+          </oj-avatar>
+        </oj-button>
+        <oj-button id="okButton" on-oj-action="[[cancel]]">
+          Cancel
+          <oj-avatar role="img" aria-label="Cancel Icon Image" size="xxs" src="css/images/cancel_24.png"
+            slot="startIcon">
+          </oj-avatar>
+        </oj-button>
+      </div>
+    </oj-dialog>
+    
+    <span class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
+      <oj-button id="buttonOpener" on-oj-action="[[open]]" chroming="callToAction">
+        Add New User
+        <oj-avatar role="img" aria-label="Add Icon Image" size="xxs" src="css/images/add_24.png" slot="startIcon">
+        </oj-avatar>
+      </oj-button>
+    </span>
+
+
+      <oj-table
+        id="table"
+        aria-label="Departments Table"
+        accessibility.row-header="depName"
+      data="[[pagingDataProvider]]"
+      columns='[{
+        "headerText": "User Name", "field": "userName" },
+      {"headerText": "Display Name", "field": "userDisplayName" },
+      {"headerText": "User Type", "field": "userType" },
+      {"headerText": "User Active", "field": "userActive" }]'
+            class="oj-sm-width-full">
+      <oj-paging-control
+        id="paging"
+        data="[[pagingDataProvider]]"
+        page-size="10"
+        slot="bottom"></oj-paging-control>
+    </oj-table>
+
+  </div>
+</div>

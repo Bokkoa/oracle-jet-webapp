@@ -39,7 +39,7 @@ define(['knockout', 'ojs/ojcontext', 'ojs/ojmodule-element-utils', 'ojs/ojknocko
         { path: 'scheduler', detail: { label: 'Scheduler', iconClass: 'oj-ux-ico-fire' } },
         { path: 'customers', detail: { label: 'Customers', iconClass: 'oj-ux-ico-contact-group' } },
         { path: 'services', detail: { label: 'Services', iconClass: 'icon-wrench' } },
-        { path: 'users', detail: { label: 'Users', iconClass: 'icon-user' } }
+        { path: 'users', detail: { label: 'Users', iconClass: 'icon-users' } }
       ];
 
       // Router setup
